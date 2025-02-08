@@ -476,17 +476,18 @@ header nav ul li a:hover {
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 
-  @media (max-width: 768px) {
-      .flower-gallery {
-          grid-template-columns: repeat(2, 1fr); /* 2 kolona për ekranet më të vogla */
-      }
+ /* Media Queries për ekranet më të vogla */
+@media (max-width: 768px) {
+  .flower-gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolona për ekranet më të vogla (tableta dhe më shumë) */
   }
+}
 
-  @media (max-width: 480px) {
-      .flower-gallery {
-          grid-template-columns: 1fr; /* 1 kolonë për ekranet më të vogla */
-      }
+@media (max-width: 480px) {
+  .flower-gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolona për ekranet shumë të vogla (telefonet) */
   }
+}
 
   .order-modal {
     position: fixed;
