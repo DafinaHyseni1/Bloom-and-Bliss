@@ -1,0 +1,672 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f5ff; /* Cute pastel background */
+  padding-top: 80px; /* Jep hapësirë për header-in */
+  margin: 0px;
+  padding: 0px;
+
+}
+
+/* Header */
+header {
+  background: rgba(252, 199, 194, 0.9); 
+  color: #ffffff; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Left */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Vendos pak hapësirë midis ☰ dhe "Bloom & Bliss" */
+}
+
+/* Logo */
+header .logo h1 {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+/* Navigimi */
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+header nav ul li a:hover {
+  color: #ff6f61;
+}
+
+/* Background Section */ 
+.background {
+  height: 100vh; /* Siguron që background-i të mbulojë tërë lartësinë e ekranit */
+  background-size: cover; 
+  background-position: center;
+  background-image: url('photo1.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  position: relative; /* Siguron që butoni nuk del jashtë */
+}
+
+/* Përmbajtja */
+.content {
+  width: 100%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  padding: 20px;
+}
+
+/* Stili i titullit dhe paragrafit */
+.content-info h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.content-info p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+/* Stili i butonave */
+.content-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.content-buttons button {
+  background: #ff6f61;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.content-buttons button:hover {
+  background: #ff847c;
+}
+
+/* ------------------ Responsive Design ------------------ */
+
+/* Për ekranet ≤ 768px (tablet & telefona të mëdhenj) */
+@media (max-width: 768px) {
+  .background {
+    height: 80vh; /* E zvogëlon lartësinë për të mos dalë jashtë */
+  }
+
+  .content-info h2 {
+    font-size: 2rem; /* E zvogëlon titullin për ekranet e vogla */
+  }
+
+  .content-info p {
+    font-size: 1.2rem; /* Bën tekstin më të vogël */
+  }
+
+  .content-buttons {
+    margin-top: 10px;
+  }
+
+  .content-buttons button {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Për ekranet ≤ 480px (telefona të vegjël) */
+@media (max-width: 480px) {
+  .background {
+    height: 70vh; /* Zvogëlon më shumë për telefonat e vegjël */
+  }
+
+  .content-info h2 {
+    font-size: 1.8rem; /* Bën titullin edhe më të vogël */
+  }
+
+  .content-info p {
+    font-size: 1rem; /* Përshtat madhësinë e paragrafit */
+  }
+
+  .content-buttons button {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ------------------ Responsive Design ------------------ */
+
+/* Menu toggle për pajisje mobile */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Për pajisje mobile (<= 480px) */
+@media (max-width: 480px) {
+  .background {
+    background-size: cover; /* Siguron që imazhi të mbushë të gjithë hapësirën */
+    background-position: center; /* Pozicionohet në qendër për ekrane më të vogla */
+    height: 60vh; /* Zvogëlojmë pak lartësinë e background për të shmangur ndjekjen e imazhit në mobile */
+  }
+
+  /* Header */
+  header {
+    flex-direction: column; /* Bëj header vertikal */
+    align-items: flex-start; /* Vendos përmbajtjen në të majtë */
+    padding: 5px 20px;
+    position: fixed;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Hapësirë mes elementeve */
+  }
+
+  .logo {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+
+  .menu-toggle {
+    display: block; /* Shfaq butonin hamburger */
+  }
+
+  header nav {
+    display: none; /* Fshi navbar-in në fillim */
+    width: 100%;
+    background: rgba(252, 199, 194, 0.9);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  header nav ul li {
+    text-align: center;
+    width: 100%;
+  }
+
+  header nav ul li a {
+    display: block;
+    padding: 10px;
+  }
+
+  /* Kur menu është aktive, shfaq navbar-in */
+  header.nav-active nav {
+    display: block;
+  }
+}
+
+/* Për pajisje tabletë (<= 768px) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Header vertikal për tabletë */
+    align-items: flex-start;
+    padding: 10px 20px;
+    height: 50px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+    background: rgba(252, 199, 194, 0.9);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  header nav ul li a {
+    font-size: 1.1rem;
+    text-align: left; /* Teksti i linkeve në të majtë */
+  }
+
+  /* Kur menu është aktive, shfaq navbar-in */
+  header.nav-active nav {
+    display: block;
+  }
+}
+
+
+
+
+/* About Section */
+.about-section {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f5ff; /* Cute pastel background */
+  padding: 50px 10%;
+  color: #333;
+  flex-wrap: wrap; /* Lejon përmbajtjen të rregullohet në linja të ndryshme kur është e nevojshme */
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.text-container {
+  max-width: 500px;
+  flex: 1; /* Lejon që të zërë pjesë të ekranit dhe të mos mbetet e ngushtë */
+}
+
+.text-container h2 {
+  font-size: 2.5rem;
+  color: #ff6b81;
+  margin-bottom: 20px;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Slider Styles */
+.image-slider {
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 0 auto;
+}
+
+.slides {
+  display: flex;
+  transition: transform 1.5s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 30px 5%;
+    flex-direction: column; /* Ndrysho layout në column kur ekrani është më i vogël */
+    align-items: flex-start; /* Lëviz përmbajtjen në majtas */
+  }
+
+  .text-container {
+    max-width: 100%; /* Lejo që përmbajtja të mbushë tërë gjerësinë */
+  }
+
+  .image-slider {
+    width: 100%; /* Slider-i do të mbushë tërë gjerësinë e ekranit */
+    height: 250px; /* Përshtat lartësinë për pajisje më të vogla */
+  }
+}
+
+@media (max-width: 480px) {
+  .text-container h2 {
+    font-size: 2rem; /* Ul fontin për ekrane më të vogla */
+  }
+
+  .text-container p {
+    font-size: 1rem; /* Ul fontin për lexueshmëri më të mirë në ekranin e vogël */
+  }
+
+  .image-slider {
+    height: 200px; /* Ndrysho lartësinë për pajisje edhe më të vogla */
+  }
+}
+
+
+/* Gallery Section */
+.gallery {
+  background-color: #f9f5ff; /* Ngjyrë e njëjtë si seksioni About */
+  padding: 60px 20px;
+  text-align: center;
+  }
+
+  .gallery h2 {
+  font-size: 2.5rem;
+  color: #ff6f61;
+  margin-bottom: 20px;
+  }
+
+  .gallery p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #555;
+  }
+
+  /* Flower Gallery */
+  .flower-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 kolona për fotot */
+      gap: 20px;
+      justify-items: center;
+      padding: 20px;
+  }
+
+  .flower-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 250px;
+  }
+
+  .flower-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+  }
+
+  .flower-name, .flower-type, .flower-price {
+      font-size: 1rem;
+      color: #333;
+      margin: 0px 0; /* Reducing the margin to bring text closer */
+      line-height: 1.2; 
+  }
+
+  .flower-price {
+      font-weight: bold;
+      color: #ff6b81; /* Light pink for price */
+  }
+
+  .order-button {
+      background-color: #ff6b81; /* Light pink */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+  }
+
+  .order-button:hover {
+      background-color: #ff2d4d; /* Darker pink on hover */
+  }
+
+  /* Hover effect for flower item */
+  .flower-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+      .flower-gallery {
+          grid-template-columns: repeat(2, 1fr); /* 2 kolona për ekranet më të vogla */
+      }
+  }
+
+  @media (max-width: 480px) {
+      .flower-gallery {
+          grid-template-columns: 1fr; /* 1 kolonë për ekranet më të vogla */
+      }
+  }
+
+  .order-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    margin: 10px 0;
+}
+
+.modal-content input,
+.modal-content select {
+    margin: 10px 0;
+    width: 100%;
+    padding: 5px;
+}
+
+.modal-content button {
+    margin: 10px 5px;
+    padding: 10px 15px;
+}
+
+/* Register Section */
+.register {
+  background-color: #f9f5ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.register h2 {
+  font-size: 2.5rem;
+  color: #ff6b61;
+  margin-bottom: 20px;
+}
+
+.register form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #ff2d4d;
+}
+
+.register input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.register button {
+  background-color: #ff6b81;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register button:hover {
+  background-color: #ff2d4d;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -8px;
+}
+
+
+
+/* For tablets and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .register h2 {
+    font-size: 2rem; /* Ul fontin për titullin */
+  }
+
+  .register form {
+    max-width: 90%; /* Përshtatet me ekranin */
+    padding: 15px; /* Ul distancën e brendshme */
+  }
+
+  .register label {
+    font-size: 1rem; /* Ul madhësinë e fontit të etiketave */
+  }
+
+  .register input {
+    font-size: 0.95rem; /* Ul madhësinë e fontit të inputeve */
+  }
+
+  .register button {
+    font-size: 1rem; /* Ul madhësinë e fontit të butonit */
+    padding: 10px 15px; /* Përshtat madhësinë e butonit */
+  }
+}
+
+/* For mobile phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .register h2 {
+    font-size: 1.8rem; /* Ul fontin për titullin për ekrane të vogla */
+  }
+
+  .register form {
+    max-width: 95%; /* Formulari do të marrë më shumë hapësirë në ekrane të vogla */
+    padding: 10px; /* Ul distancën e brendshme */
+  }
+
+  .register label {
+    font-size: 0.95rem; /* Ul madhësinë e fontit të etiketave */
+  }
+
+  .register input {
+    font-size: 0.9rem; /* Ul madhësinë e fontit të inputeve */
+  }
+
+  .register button {
+    font-size: 0.95rem; /* Ul madhësinë e fontit të butonit */
+    padding: 8px 12px; /* Ul madhësinë e butonit për ekranet e vogla */
+  }
+}
+
+/* Footer Styling */
+footer {
+  background-color: #fcb3ac;; /* Ngjyrë e njëjtë si tek header */
+  color: #ffffff; /* Ngjyrë gri e lehtë për tekstin */
+  padding: 10px 0; /* Ulje e lartësisë për footer-in */
+  text-align: center;
+  font-size: 0.9rem; /* Përshtatje e madhësisë së tekstit */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
